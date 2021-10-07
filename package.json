@@ -1,0 +1,27 @@
+{
+  "name": "multi-token-standard-abi",
+  "version": "1.0.0",
+  "description": "Node module that exports the Ethereum ABI for ERC 1155 compatible tokens.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify example/index.js -o example/bundle.js"
+  },
+  "author": "Gustavo Antunes",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gantunesr/multi-token-standard-abi.git"
+  },
+  "keywords": [
+    "Ethereum",
+    "Token",
+    "Collectible",
+    "Json",
+    "Abi"
+  ],
+  "bugs": {
+    "url": "https://github.com/gantunesr/multi-token-standard-abi/issues"
+  },
+  "homepage": "https://github.com/gantunesr/multi-token-standard-abi#readme"
+}
