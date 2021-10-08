@@ -1,309 +1,141 @@
-modules.export = [
+[
   {
-    "anonymous": false,
-    "inputs": [
+    "inputs":[
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_owner",
-        "type": "address"
+        "internalType":"contract IBeacon",
+        "name":"_beacon",
+        "type":"address"
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_operator",
-        "type": "address"
+        "internalType":"address",
+        "name":"_transferProxy",
+        "type":"address"
       },
       {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "_approved",
-        "type": "bool"
+        "internalType":"address",
+        "name":"_lazyTransferProxy",
+        "type":"address"
       }
     ],
-    "name": "ApprovalForAll",
-    "type": "event"
+    "stateMutability":"nonpayable",
+    "type":"constructor"
   },
   {
-    "anonymous": false,
-    "inputs": [
+    "anonymous":false,
+    "inputs":[
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_operator",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256[]",
-        "name": "_ids",
-        "type": "uint256[]"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256[]",
-        "name": "_values",
-        "type": "uint256[]"
+        "indexed":false,
+        "internalType":"contract BeaconProxy",
+        "name":"proxy",
+        "type":"address"
       }
     ],
-    "name": "TransferBatch",
-    "type": "event"
+    "name":"Create1155RaribleProxy",
+    "type":"event"
   },
   {
-    "anonymous": false,
-    "inputs": [
+    "anonymous":false,
+    "inputs":[
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_operator",
-        "type": "address"
+        "indexed":true,
+        "internalType":"address",
+        "name":"previousOwner",
+        "type":"address"
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_id",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
+        "indexed":true,
+        "internalType":"address",
+        "name":"newOwner",
+        "type":"address"
       }
     ],
-    "name": "TransferSingle",
-    "type": "event"
+    "name":"OwnershipTransferred",
+    "type":"event"
   },
   {
-    "anonymous": false,
-    "inputs": [
+    "inputs":[
+      
+    ],
+    "name":"beacon",
+    "outputs":[
       {
-        "indexed": false,
-        "internalType": "string",
-        "name": "_value",
-        "type": "string"
-      },
-      {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "_id",
-        "type": "uint256"
+        "internalType":"contract IBeacon",
+        "name":"",
+        "type":"address"
       }
     ],
-    "name": "URI",
-    "type": "event"
+    "stateMutability":"view",
+    "type":"function"
   },
   {
-    "constant": true,
-    "inputs": [
+    "inputs":[
       {
-        "internalType": "address",
-        "name": "_owner",
-        "type": "address"
+        "internalType":"string",
+        "name":"_name",
+        "type":"string"
       },
       {
-        "internalType": "uint256",
-        "name": "_id",
-        "type": "uint256"
-      }
-    ],
-    "name": "balanceOf",
-    "outputs": [
+        "internalType":"string",
+        "name":"_symbol",
+        "type":"string"
+      },
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
+        "internalType":"string",
+        "name":"baseURI",
+        "type":"string"
+      },
+      {
+        "internalType":"string",
+        "name":"contractURI",
+        "type":"string"
       }
     ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "name":"createToken",
+    "outputs":[
+      
+    ],
+    "stateMutability":"nonpayable",
+    "type":"function"
   },
   {
-    "constant": true,
-    "inputs": [
+    "inputs":[
+      
+    ],
+    "name":"owner",
+    "outputs":[
       {
-        "internalType": "address[]",
-        "name": "_owners",
-        "type": "address[]"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "_ids",
-        "type": "uint256[]"
+        "internalType":"address",
+        "name":"",
+        "type":"address"
       }
     ],
-    "name": "balanceOfBatch",
-    "outputs": [
-      {
-        "internalType": "uint256[]",
-        "name": "",
-        "type": "uint256[]"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability":"view",
+    "type":"function"
   },
   {
-    "constant": true,
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_owner",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_operator",
-        "type": "address"
-      }
+    "inputs":[
+      
     ],
-    "name": "isApprovedForAll",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+    "name":"renounceOwnership",
+    "outputs":[
+      
     ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability":"nonpayable",
+    "type":"function"
   },
   {
-    "constant": false,
-    "inputs": [
+    "inputs":[
       {
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "_ids",
-        "type": "uint256[]"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "_values",
-        "type": "uint256[]"
-      },
-      {
-        "internalType": "bytes",
-        "name": "_data",
-        "type": "bytes"
+        "internalType":"address",
+        "name":"newOwner",
+        "type":"address"
       }
     ],
-    "name": "safeBatchTransferFrom",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "_data",
-        "type": "bytes"
-      }
+    "name":"transferOwnership",
+    "outputs":[
+      
     ],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_operator",
-        "type": "address"
-      },
-      {
-        "internalType": "bool",
-        "name": "_approved",
-        "type": "bool"
-      }
-    ],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "internalType": "bytes4",
-        "name": "_interfaceId",
-        "type": "bytes4"
-      }
-    ],
-    "name": "supportsInterface",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability":"nonpayable",
+    "type":"function"
   }
 ]
