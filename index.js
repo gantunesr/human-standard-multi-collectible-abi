@@ -1,141 +1,309 @@
-[
+module.exports = [
   {
-    "inputs":[
+    "anonymous": false,
+    "inputs": [
       {
-        "internalType":"contract IBeacon",
-        "name":"_beacon",
-        "type":"address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
       },
       {
-        "internalType":"address",
-        "name":"_transferProxy",
-        "type":"address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
       },
       {
-        "internalType":"address",
-        "name":"_lazyTransferProxy",
-        "type":"address"
+        "indexed": false,
+        "internalType": "bool",
+        "name": "_approved",
+        "type": "bool"
       }
     ],
-    "stateMutability":"nonpayable",
-    "type":"constructor"
+    "name": "ApprovalForAll",
+    "type": "event"
   },
   {
-    "anonymous":false,
-    "inputs":[
+    "anonymous": false,
+    "inputs": [
       {
-        "indexed":false,
-        "internalType":"contract BeaconProxy",
-        "name":"proxy",
-        "type":"address"
-      }
-    ],
-    "name":"Create1155RaribleProxy",
-    "type":"event"
-  },
-  {
-    "anonymous":false,
-    "inputs":[
-      {
-        "indexed":true,
-        "internalType":"address",
-        "name":"previousOwner",
-        "type":"address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
       },
       {
-        "indexed":true,
-        "internalType":"address",
-        "name":"newOwner",
-        "type":"address"
-      }
-    ],
-    "name":"OwnershipTransferred",
-    "type":"event"
-  },
-  {
-    "inputs":[
-      
-    ],
-    "name":"beacon",
-    "outputs":[
-      {
-        "internalType":"contract IBeacon",
-        "name":"",
-        "type":"address"
-      }
-    ],
-    "stateMutability":"view",
-    "type":"function"
-  },
-  {
-    "inputs":[
-      {
-        "internalType":"string",
-        "name":"_name",
-        "type":"string"
+        "indexed": true,
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
       },
       {
-        "internalType":"string",
-        "name":"_symbol",
-        "type":"string"
+        "indexed": true,
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
       },
       {
-        "internalType":"string",
-        "name":"baseURI",
-        "type":"string"
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "_ids",
+        "type": "uint256[]"
       },
       {
-        "internalType":"string",
-        "name":"contractURI",
-        "type":"string"
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "_values",
+        "type": "uint256[]"
       }
     ],
-    "name":"createToken",
-    "outputs":[
-      
-    ],
-    "stateMutability":"nonpayable",
-    "type":"function"
+    "name": "TransferBatch",
+    "type": "event"
   },
   {
-    "inputs":[
-      
-    ],
-    "name":"owner",
-    "outputs":[
+    "anonymous": false,
+    "inputs": [
       {
-        "internalType":"address",
-        "name":"",
-        "type":"address"
-      }
-    ],
-    "stateMutability":"view",
-    "type":"function"
-  },
-  {
-    "inputs":[
-      
-    ],
-    "name":"renounceOwnership",
-    "outputs":[
-      
-    ],
-    "stateMutability":"nonpayable",
-    "type":"function"
-  },
-  {
-    "inputs":[
+        "indexed": true,
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
+      },
       {
-        "internalType":"address",
-        "name":"newOwner",
-        "type":"address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
       }
     ],
-    "name":"transferOwnership",
-    "outputs":[
-      
+    "name": "TransferSingle",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "_value",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
     ],
-    "stateMutability":"nonpayable",
-    "type":"function"
+    "name": "URI",
+    "type": "event"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_owners",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_ids",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "balanceOfBatch",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
+      }
+    ],
+    "name": "isApprovedForAll",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_ids",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_values",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "safeBatchTransferFrom",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_approved",
+        "type": "bool"
+      }
+    ],
+    "name": "setApprovalForAll",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "bytes4",
+        "name": "_interfaceId",
+        "type": "bytes4"
+      }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   }
 ]
