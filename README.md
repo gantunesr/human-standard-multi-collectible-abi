@@ -20,3 +20,4 @@ const balance = await collectible.methods.balanceOf(walletPublicAddress,tokenId)
 
 * [EIP-1155: Multi Token Standard](https://eips.ethereum.org/EIPS/eip-1155)
 * [ERC1155 - OpenZeppelin Docs](https://docs.openzeppelin.com/contracts/3.x/erc1155)
+* [ERC1155 - OpenZeppelin GitHub](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC1155)
